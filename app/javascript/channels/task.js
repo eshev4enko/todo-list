@@ -27,7 +27,8 @@ export default class Task {
     $('.list').on('click', 'article .todo-list tr .todo-list-task-edit', (e) => {
       e.preventDefault();
       let todoListTask = $(e.currentTarget).parents('tr').find('.todo-list-task'),
-          textToBeEdited = todoListTask.find('span').text().trim();
+          textToBeEdited = todoListTask.find('span').text().trim(),
+          checkStatus =  $(e.target).closest('tr').find('.todo-list-checkbox input[type="checkbox"]');
 
       if(!todoListTask.hasClass('edit-mode')) {
         todoListTask
@@ -49,7 +50,16 @@ export default class Task {
             .find('input')
             .removeClass('editor')
             .removeAttr('readonly');
-      } else {
+
+        if ($(checkStatus).is("[checked]")) {
+          $(e.target)
+              .closest('tr')
+              .find('.todo-list-task input[type="text"]')
+              .addClass('through-line-to');
+        }
+      }
+
+      if ($(e.target).is('.cross-icon')) {
         $(e.target)
             .hide()
             .prev()
