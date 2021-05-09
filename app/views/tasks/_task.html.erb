@@ -1,0 +1,31 @@
+<tr data-task-id="<%= "#{task.id}" %>" class="<%= task.completed? ? 'completed-task' : nil %>">
+  <td class="todo-list-checkbox">
+    <input type="checkbox" <%= task.completed? ? 'checked' : nil %>>
+  </td>
+  <td class="todo-list-divider"></td>
+  <td class="todo-list-task">
+    <span>
+      <%= h task.name %>
+    </span>
+  </td>
+  <td class="todo-list-actions">
+    <ul class="hidden">
+      <li>
+        <a class="todo-list-task-sort" href="#">
+          <i class="fas fa-sort"></i>
+        </a>
+      </li>
+      <li>
+        <a class="todo-list-task-edit" href="#">
+          <i class="fas fa-pencil-alt edit-icon"></i>
+          <i class="fas fa-times cross-icon"></i>
+        </a>
+      </li>
+      <li>
+        <a class="todo-list-task-delete" href="#">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </td>
+</tr>

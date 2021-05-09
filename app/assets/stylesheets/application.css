@@ -1,0 +1,362 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+    font: 400 16px / 1.5 'Open Sans', sans-serif;
+}
+
+.header {
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.header h1 {
+    margin-top: 60px;
+}
+
+.header span {
+    margin: 0;
+}
+
+.content {
+    width: 700px;
+    margin: 60px auto;
+}
+
+article {
+    margin-bottom: 80px;
+}
+
+article .todo-header {
+    /*border: 1px solid #315587;*/
+    /*background: url('todo-header-icon.png') 15px 50% no-repeat,*/
+    /*            #4165a3 url('todo-header-bg.png') left top repeat;*/
+    /*height: 50px;*/
+    /*padding: 0 16px;*/
+    /*color: #fff;*/
+    /*font-size: 16px;*/
+    /*position: relative;*/
+    display: flex;
+    align-items: center;
+    background-color: #6495ed;
+    padding: 15px 20px;
+}
+
+article .todo-header.edit-mode {
+    flex-direction: row-reverse;
+}
+
+article .todo-header:hover {
+    cursor: pointer;
+}
+
+article .todo-header.edit-mode h3 {
+    display: none;
+}
+
+article .todo-header.edit-mode input {
+    display: inline;
+    height: 25px;
+    padding-left: 0;
+}
+
+article .todo-header input {
+    display: none;
+    /*background-color: transparent;*/
+    /*font-weight: normal;*/
+    /*margin: 0 0 0 33px;*/
+    /*border: none;*/
+    /*color: #fff;*/
+    /*width: 90%;*/
+    /*height: 47px;*/
+    /*font-size: 18px;*/
+}
+
+article .todo-header input:focus {
+    outline: none;
+}
+
+article .todo-header h3,
+article .todo-header.edit-mode input {
+    font-size: 18px;
+    width: calc(100% - 30px);
+    border: none;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+    outline: none;
+    color: #333;
+    font-weight: normal;
+    margin: 0 30px 0 0;
+}
+
+article .todo-header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50px;
+}
+
+/*article .todo-header ul li {*/
+/*    float: left;*/
+/*    text-indent: -999px;*/
+/*}*/
+
+article .todo-header ul li .todo-action-edit i,
+article .todo-header ul li .todo-action-remove i {
+    /*background: url('todo-header-actions.png');*/
+    /*display: block;*/
+    /*width: 27px;*/
+    /*height: 17px;*/
+    /*cursor: pointer;*/
+    /*overflow: hidden;*/
+
+    color: #333;
+    font-size: 16px;
+}
+
+article .todo-header ul li .todo-action-edit {
+    padding-right: 10px;
+    text-decoration: none;
+}
+
+article .todo-header ul li .todo-action-remove {
+    /*width: 26px;*/
+    /*background: url('todo-header-actions.png') -27px 0;*/
+    border-left: 1px solid #333;
+    padding-left: 10px;
+}
+
+article .todo-bar {
+    /*background: -webkit-linear-gradient(top, #dedede, #ccc);*/
+    /*background: -o-linear-gradient(top, #dedede, #ccc);*/
+    /*background: -moz-linear-gradient(top, #dedede, #ccc);*/
+    /*background: linear-gradient(top, #dedede, #ccc);*/
+    /*height: 50px;*/
+    /*border: 1px solid #b0b0a2;*/
+    /*border-top: none;*/
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #eae7e7;
+}
+
+article .todo-bar .todo-bar-new {
+    /*height: 50px;*/
+    /*background: url('todo-bar-cross.png') no-repeat 13px 50%;*/
+    /*padding-left: 50px;*/
+}
+
+/*article .todo-bar .todo-bar-new form {*/
+/*    margin: 0;*/
+/*    padding-top: 7px;*/
+/*}*/
+
+article .todo-bar .todo-bar-new form input {
+    border: 1px solid #ccc;
+    width: 520px;
+    padding: 8px;
+    color: #999;
+    font-size: 14px;
+}
+
+article .todo-bar .todo-bar-new form input:focus {
+    outline: none;
+}
+
+article .todo-bar .todo-bar-new form button {
+    /*text-shadow: 0 1px rgba(0, 0, 0, 0.75);*/
+    /*color: #fff;*/
+    /*margin-left: -5px;*/
+    /*height: 31px;*/
+    /*border: 1px solid #447356;*/
+    /*background: -webkit-linear-gradient(top, #93c9ac, #508566);*/
+    /*background: -o-linear-gradient(top, #93c9ac, #508566);*/
+    /*background: -moz-linear-gradient(top, #93c9ac, #508566);*/
+    /*background: linear-gradient(top, #93c9ac, #508566);*/
+    /*padding: 0 22px;*/
+    margin-left: -5px;
+    background-color: green;
+    color: #fff;
+    border: 1px solid green;
+    padding: 8px 30px;
+    font-size: 14px;
+}
+
+article .todo-list {
+    border-radius: 0 0 13px 13px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background: #fff;
+    overflow: hidden;
+}
+
+article .todo-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+article .todo-list table tr:not(:last-child) {
+    border-bottom: 1px solid #e8ebea;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+article .todo-list table tr:hover {
+    background-color: rgba(191,175, 56, 0.3);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+article .todo-list table tr td {
+    padding: 15px 0;
+}
+
+article .todo-list table tr.completed-task span {
+    text-decoration: line-through;
+    color: #999;
+}
+
+article .todo-list table tr .todo-list-checkbox {
+    width: 40px;
+}
+
+article .todo-list table tr .todo-list-checkbox input {
+    margin-left: 15px;
+}
+
+article .todo-list table tr .todo-list-divider {
+    width: 5px;
+    border-left: 1px solid #eddadf;
+    border-right: 1px solid #eddadf;
+}
+
+article .todo-list table tr .todo-list-task {
+    border-right: 1px solid #e8ebea;
+    color: #333;
+    font-size: 14px;
+    width: 516px;
+}
+
+article .todo-list table tr .todo-list-task span {
+    margin: 0;
+    padding: 5px 16px;
+    width: calc(100% - 32px);
+    display: inline-block;
+}
+
+article .todo-list table tr .todo-list-task.edit-mode span {
+    display: none;
+}
+
+article .todo-list table tr .todo-list-task.edit-mode input {
+    border: none;
+    width: 90%;
+    color: #999;
+    padding: 5px 3px;
+    font-size: 14px;
+    margin: 0 16px;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+article .todo-list table tr:hover .todo-list-task.edit-mode input.editor {
+    background-color: rgba(191,175, 56, 0);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+article .todo-list table tr .todo-list-task.edit-mode input:focus {
+    outline: none;
+}
+
+article .todo-list table tr .todo-list-actions {
+    width: 100px;
+    padding: 0 16px;
+}
+
+article .todo-list table tr .todo-list-actions ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*article .todo-list table tr .todo-list-actions ul li {*/
+/*    float: left;*/
+/*}*/
+
+article .todo-list table tr .todo-list-actions ul li .todo-list-task-sort,
+article .todo-list table tr .todo-list-actions ul li .todo-list-task-edit,
+article .todo-list table tr .todo-list-actions ul li .todo-list-task-delete {
+    /*display: block;*/
+    /*text-indent: -999px;*/
+    /*background: url('todo-list-actions.png') no-repeat;*/
+    color: #333;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #333;
+    text-decoration: none;
+}
+
+/*article .todo-list table tr .todo-list-actions ul li .todo-list-task-sort {*/
+/*    width: 21px;*/
+/*}*/
+article .todo-list table tr .todo-list-actions ul li .todo-list-task-edit .cross-icon,
+.todo-header .project-cross-icon {
+    display: none;
+}
+
+article .todo-list table tr .todo-list-actions ul li .todo-list-task-delete {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.new-todo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.new-todo input[type="submit"] {
+    background-color: #6495ed;
+    color: #fff;
+    border: 1px solid #6495ed;
+    border-radius: 3px;
+    padding: 10px 30px;
+    opacity: 1;
+    transition: opacity 0.5s;
+    font-size: 20px;
+    outline: none;
+}
+
+.new-todo input[type="submit"]:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+
+.new-todo input[type="submit"]:active {
+    background-image: none;
+    background-color: #5d80a6;
+}
+
