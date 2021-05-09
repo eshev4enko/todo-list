@@ -1,8 +1,8 @@
 export default class Routes {
 
-  constructor() { this._host = 'http://127.0.0.1:3000'; }
+  //constructor() { this._host = 'http://127.0.0.1:3000'; }
 
-  //constructor() { this._host = 'https://rails-todo-es6.herokuapp.com/'; }
+  constructor() { this._host = 'https://todo-list-created.herokuapp.com/'; }
 
   projectsCreate() { return this._host + '/projects'; }
 
